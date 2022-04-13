@@ -41,6 +41,23 @@ builder.Services.AddSingleton<IQuestionService, QuestionService>();
 
 #endregion Services
 
+#region CORS
+
+var AllowAthenaWebOrigin = "_allowAthenaWebOrigin";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: AllowAthenaWebOrigin,
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:6006")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
+#endregion
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -51,6 +68,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(AllowAthenaWebOrigin);
 
 app.UseAuthorization();
 
