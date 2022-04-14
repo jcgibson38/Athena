@@ -7,8 +7,6 @@ import {
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { Header as AthenaHeader } from './molecules/Header/Header';
-import { Logo } from './atoms/Logo/Logo';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -22,12 +20,11 @@ export default function Root(props: Props) {
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible>
         <Space style={{width: '100%', justifyContent: 'start', alignItems: 'center', margin: '16px'}}>
-          <Logo backgroundColor='#001529' />
           <h1 style={{ color: "rgba(255, 255, 255, 0.65)" }}>Coeus</h1>
         </Space>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1" icon={<PieChartOutlined />}>
-            Option 1
+            Questions
           </Menu.Item>
           <Menu.Item key="2" icon={<DesktopOutlined />}>
             Option 2
@@ -48,7 +45,6 @@ export default function Root(props: Props) {
       </Sider>
       <Layout>
         <Header style={{ padding: 0, background: '#fff' }}>
-          <AthenaHeader />
         </Header>
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
